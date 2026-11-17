@@ -29,6 +29,7 @@ import Galleryhome6 from "../../components/Gallary/Conferencegallery2.jpeg";
 // import brochure2 from "../../components/Events/WYNx Toronto Brochure.pdf";
 import brochure3 from "../../components/Events/WYNx Dubai Brochure.pdf";
 import brochure4 from "../../components/Events/WYNx Paris Brocher.pdf";
+import { SPEAKERS } from "../Speakers/speakers";
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
@@ -151,16 +152,7 @@ const SPEAKER_STEPS = [
 
 const GALLERY_IMAGES = [ Galleryhome, Galleryhome6, Galleryhome5, Galleryhome4, Galleryhome3, Galleryhome2, Galleryhome1];
 
-const SPEAKER_IMAGES = [   "regspeaker.jpg",  "regspeaker1.jpg",  "regspeaker2.jpg",  "regspeaker3.jpg",  "regspeaker4.jpg",  "regspeaker5.jpg",  "regspeaker6.jpg",
-  "Allison C. Williams.jpg",  "Anne Deatly Phd.jpg",  "Arsella Burton.jpg",  "Bruce Wren.jpg",  "Carlota De Gula Iremedio.jpg",  "Yelena Kalendareva.jpg", "KarenGigiWrancher.jpeg",
-  "Wanna Williamson-Jackson.jpg",  "Thiru Damodharan.jpg",  "Stephani Forbes.jpg",  "Sam Sammane.jpg",  "Rudy Merouchi.jpg",  "Rasimah Jar.jpg", "FeliciaAGokool.jpeg",
-  "Nio Queiro.jpg",  "Christine Forment.jpg",  "Deborah S. Greenhut.jpg",  "Dr. Denise Y Wynn.jpg",  "Dr. Dimple Patel.jpg",  "Dr. Ignacio Bonasa.jpg",
-  "Dr. Laura Kristan Wilhelm.jpg",  "Dr. Sharon Shappley.jpg",  "Eniko Frenyo Simoes.jpg",  "Huma Nosheen Mirza.jpg",  "Jean Pael.jpg",  "Jeffrey Herbert Williams.jpg",
-  "Karima GUERFALI LAZZEM.jpg",  "Limor Jasinski.jpg",  "Lissette Valle.jpg",  "Nikki Langman.jpg",  "Tristina Anderson.jpg",  "Margaret Vuijk-Cieslak.jpg",  "Bente Vosteen.jpg",
-  "Kunio Hara.jpg",  "Dr Diana Richardson.jpg",  "Kimly Hoang-Nakata.jpg",  "Kathryn Lancioni.jpg",  "Wahida parveen.jpg",  "Barb varcl smith.jpg",  "Michelle Sweeting D.jpg",
-  "Ann-Marie Emmanuel.jpg",  "EnowBisong spouse Njonje Alice Bessem.jpg",  "Joanna Sroka.jpg",  "Manjinder Kau.jpg",  "Annabelle Hartnell.jpg",  "Heidy Kallion.jpg",  "Tina Collura.jpg",
-  "Dr. Rita Lustgarten.jpeg",  "Steve Conway.jpeg",  "Hila Lauterbach.jpeg",  "Ellen Duffey Lueb.jpeg",  "Sabira Arefin.jpeg", "David Goldberg.jpeg","Paul Peters.jpeg", "Rebecca House.jpeg", "Roger Nakata, D.O.jpeg", "Robyn Vincent.jpeg"
-].map(img => require(`../../components/speaker images/${img}`));
+const SPEAKER_IMAGES = SPEAKERS;
 
 /* ─── Icon helpers ───────────────────────────────────────────────── */
 function PlayIcon() {
@@ -422,10 +414,15 @@ function SpeakersSection() {
       </div>
       <div className="wy-marquee-viewport">
         <div className="wy-marquee-track">
-          {items.map((src, i) => (
-            <div className="wy-marquee-card" key={i}>
+          {items.map((spk, i) => (
+            <div
+              className="wy-marquee-card"
+              key={i}
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(`/speakers/${spk.slug}`)}
+            >
               <div className="wy-marquee-img-wrap">
-                <img src={src} alt={`Speaker ${(i % SPEAKER_IMAGES.length) + 1}`} draggable={false} />
+                <img src={spk.src} alt={spk.name} draggable={false} />
                 <div className="wy-marquee-overlay" />
               </div>
             </div>
@@ -436,7 +433,7 @@ function SpeakersSection() {
       </div>
       <div className="wy-container">
         <div className="wy-spk-arc-cta">
-          <button className="wy-cta-primary" onClick={() => navigate("/gallery")}>
+          <button className="wy-cta-primary" onClick={() => navigate("/speakers")}>
             View All Speakers
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />

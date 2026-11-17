@@ -83,7 +83,13 @@ const Footer = () => {
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
     { label: "Conclaves", href: "/conferences" },
-    { label: "Gallery", href: "/gallery" },
+    {
+      label: "Highlights",
+      submenu: [
+        { label: "Gallery", href: "/gallery" },
+        { label: "Speakers", href: "/speakers" },
+      ],
+    },
     { label: "Awards", href: "/awardcategories" },
     { label: "Register", href: "/awardsnomination" },
   ];

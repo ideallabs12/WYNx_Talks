@@ -24,6 +24,7 @@ import Contactpage from "./Pages/Contact/contact";
 import Aboutpage from "./Pages/About/about";
 import Conferencecards from "./Pages/conferences/conference";
 import ConferencePage from "./Pages/conferences/insideconference";
+import SpeakersPage, { SpeakerDetailPage } from "./Pages/Speakers/speakers";
 
 import RefundPolicy from "./Pages/Policyconditions/refund";
 import PrivacyPolicy from "./Pages/Policyconditions/privacy";
@@ -62,6 +63,8 @@ function App() {
           <Route path='/about' element={<Aboutpage />} />
           <Route path='/conferences' element={<Conferencecards />} />
           <Route path="/wynxconferences/:id" element={<ConferencePage />} />
+          <Route path="/speakers" element={<SpeakersPage />} />
+          <Route path="/speakers/:slug" element={<SpeakerDetailPage />} />
 
           <Route path="/refundpolicy" element={<RefundPolicy />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />

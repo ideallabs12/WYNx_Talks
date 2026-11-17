@@ -6,14 +6,29 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
   { label: "Conclaves", path: "/conferences" },
-  { label: "Awards",
+  {
+    label: "Awards",
     dropdown: [
       { label: "Award Categories", path: "/awardcategories" },
       { label: "Award Winners", path: "/awardwinners" },
     ],
   },
-  { label: "Gallery", path: "/gallery" },
-  { label: "Our Addons",
+  {
+    label: "Highlights",
+    dropdown: [
+      { label: "Gallery", path: "/gallery" },
+      { label: "Speakers", path: "/speakers" },
+    ],
+  },
+  {
+    label: "Our Addons",
+    dropdown: [
+      { label: "Gallery", path: "/gallery" },
+      { label: "Speakers", path: "/speakers" },
+    ],
+  },
+  {
+    label: "Our Addons",
     dropdown: [
       { label: "WINSPIRE Magazine", path: "https://www.winspire.live" },
       { label: "French Chronicles", path: "https://www.french-chronicles.com" },
